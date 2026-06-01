@@ -5,26 +5,19 @@ import com.fasterxml.jackson.annotation.JsonBackReference;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
 @Entity
 @Table(name = "resena")
-public class Resena {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+public class Resena extends EntidadBase {
 
     @Column(nullable = false, columnDefinition = "TEXT")
     private String comentario;
 
     @Column(nullable = false)
-    private Integer calificacion;
+    private Float calificacion;
 
     @Column(name = "nombre_autor", nullable = false)
     private String nombreAutor;
@@ -32,16 +25,14 @@ public class Resena {
     @Column(nullable = false)
     private LocalDate fecha;
 
-   
-
     public Integer getId() { return id; }
     public void setId(Integer id) { this.id = id; }
 
     public String getComentario() { return comentario; }
     public void setComentario(String comentario) { this.comentario = comentario; }
 
-    public Integer getCalificacion() { return calificacion; }
-    public void setCalificacion(Integer calificacion) { this.calificacion = calificacion; }
+    public Float getCalificacion() { return calificacion; }
+    public void setCalificacion(Float calificacion) { this.calificacion = calificacion; }
 
     public String getNombreAutor() { return nombreAutor; }
     public void setNombreAutor(String nombreAutor) { this.nombreAutor = nombreAutor; }

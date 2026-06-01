@@ -2,22 +2,18 @@ package com.proyectoTecnicas.resenas_peliculas.MODEL;
 
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name = "pelicula")
-public class Pelicula {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+@Table(name = "pelicula") 
+public class Pelicula extends EntidadBase {
 
     @Column(nullable = false)
     private String titulo;
@@ -40,9 +36,7 @@ public class Pelicula {
     @Column(name = "calificacion_promedio")
     private Double calificacionPromedio = 0.0;
 
-    @OneToMany(mappedBy = "pelicula", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<Resena> resenas;
-
+ 
     public Integer getId() { return id; }
     public void setId(Integer id) { this.id = id; }
 
@@ -68,5 +62,11 @@ public class Pelicula {
     public void setCalificacionPromedio(Double calificacionPromedio) { this.calificacionPromedio = calificacionPromedio; }
 
     public List<Resena> getResenas() { return resenas; }
-    public void setResenas(List<Resena> resenas) { this.resenas = resenas; }
+
+    public void setResenas(List<Resena> resenas) {
+        this.resenas = resenas;
+    }
+    @JsonManagedReference
+    @OneToMany(mappedBy = "pelicula", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Resena> resenas;
 }

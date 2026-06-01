@@ -9,6 +9,7 @@ import com.proyectoTecnicas.resenas_peliculas.MODEL.Resena;
 import com.proyectoTecnicas.resenas_peliculas.REPOSITORY.PeliculaRepository;
 import com.proyectoTecnicas.resenas_peliculas.REPOSITORY.ResenaRepository;
 
+
 @Service
 public class PeliculaService {
     @Autowired
