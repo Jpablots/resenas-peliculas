@@ -7,7 +7,6 @@ import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
-
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
@@ -36,9 +35,6 @@ public class Pelicula extends EntidadBase {
     @Column(name = "calificacion_promedio")
     private Double calificacionPromedio = 0.0;
 
- 
-    public Integer getId() { return id; }
-    public void setId(Integer id) { this.id = id; }
 
     public String getTitulo() { return titulo; }
     public void setTitulo(String titulo) { this.titulo = titulo; }

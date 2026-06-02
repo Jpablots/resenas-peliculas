@@ -350,8 +350,6 @@ function editarPelicula(id) {
 function guardarEdicion() {
     const id = document.getElementById('editId').value;
     const titulo = document.getElementById('editTitulo').value.trim();
-    const anio = parseInt(document.getElementById('editAnio').value);
-    
 
     // Validaciones
     let valido = true;
@@ -363,14 +361,10 @@ function guardarEdicion() {
         document.getElementById('errorEditTitulo').classList.add('d-none');
     }
 
-    if (!anio || anio <= 1888) {
-        document.getElementById('errorEditAnio').classList.remove('d-none');
-        valido = false;
-    } else {
-        document.getElementById('errorEditAnio').classList.add('d-none');
-    }
-
     if (!valido) return;
+
+    const anioVal = document.getElementById('editAnio').value;
+    const anio = anioVal && anioVal !== '' ? parseInt(anioVal) : new Date().getFullYear();
 
     const pelicula = {
         titulo: titulo,
