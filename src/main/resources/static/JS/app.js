@@ -249,6 +249,7 @@ function mostrarFormularioResena() {
     // Poner fecha de hoy por defecto
     const hoy = new Date().toISOString().split('T')[0];
     document.getElementById('resFecha').value = hoy;
+    document.getElementById('resFecha').max = hoy;
 
     // Limpiar campos
     document.getElementById('resNombre').value = '';
