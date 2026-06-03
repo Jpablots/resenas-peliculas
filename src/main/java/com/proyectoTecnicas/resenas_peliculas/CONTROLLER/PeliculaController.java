@@ -74,7 +74,7 @@ public class PeliculaController {
         peliculaeditable.setSinopsis(pelicula.getSinopsis());
         peliculaeditable.setUrlPoster(pelicula.getUrlPoster());
         peliculaeditable.setCalificacionPromedio(pelicula.getCalificacionPromedio()); 
-        return peliculaService.guardar(pelicula);
+        return peliculaService.guardar(peliculaeditable);
     }
 
     @DeleteMapping("/peliculas/{id}")
