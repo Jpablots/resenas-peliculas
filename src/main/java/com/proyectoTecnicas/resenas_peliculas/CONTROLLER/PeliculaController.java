@@ -66,7 +66,14 @@ public class PeliculaController {
     @PutMapping("/peliculas/{id}")
     @ResponseBody
     public Pelicula editar(@PathVariable Integer id, @RequestBody Pelicula pelicula) {
-        pelicula.setId(id);
+        Pelicula peliculaeditable = peliculaService.buscarPorId(id);
+        peliculaeditable.setTitulo(pelicula.getTitulo());
+        peliculaeditable.setGenero(pelicula.getGenero());
+        peliculaeditable.setAnio(pelicula.getAnio());
+        peliculaeditable.setDirector(pelicula.getDirector());
+        peliculaeditable.setSinopsis(pelicula.getSinopsis());
+        peliculaeditable.setUrlPoster(pelicula.getUrlPoster());
+        peliculaeditable.setCalificacionPromedio(pelicula.getCalificacionPromedio()); 
         return peliculaService.guardar(pelicula);
     }
 
